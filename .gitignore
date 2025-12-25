@@ -6,3 +6,5 @@ bin/
 *.a
 *.so
 *.dylib
+res/**/*.inc
+res/assets/default/inc/
