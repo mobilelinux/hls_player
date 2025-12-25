@@ -1,0 +1,8 @@
+bin/
+.sconsign.dblite
+.vscode/
+.qodo/
+*.o
+*.a
+*.so
+*.dylib

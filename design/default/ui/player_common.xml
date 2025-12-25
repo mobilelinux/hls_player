@@ -1,0 +1,24 @@
+  <column children_layout="default(r=4,c=1)" x="center" y="middle" w="90%" h="150">
+    <row>
+      <label text="URL" text_color="#333333" x="0" y="middle" w="20%" h="28" text_align_h="left"/>
+      <edit name="url" v-data:text="{url}" input_type="text"
+            x="right" y="middle" w="-10" h="28"
+            tips="https://ngcdn010.cnr.cn/live/wyzs/index.m3u8?key=8c05c8b270dbb59749f6f432e2c47cac&time=1764653855"/>
+    </row>
+    <row>
+      <label v-data:text="{position_text}" x="0" y="middle" w="15%" h="24" text_align_h="left" text_color="#111111"/>
+      <slider name="progress" x="center" y="middle" w="-120" h="24"
+              min="0" max="100" sensitive="false" v-data:value="{progress}"/>
+      <label v-data:text="{duration_text}" x="right" y="middle" w="15%" h="24" text_align_h="right" text_color="#111111"/>
+    </row>
+    <row>
+      <button name="play_btn" text="Play" x="0" y="middle" w="30%" h="36" v-on:click="{play}"/>
+      <button name="pause_btn" text="Pause" x="center" y="middle" w="30%" h="36" v-on:click="{pause}"/>
+      <button name="stop_btn" text="Stop" x="right" y="middle" w="30%" h="36" v-on:click="{stop}"/>
+    </row>
+    <row>
+      <label text="Volume" x="0" y="middle" w="15%" h="24" text_align_h="left"/>
+      <slider name="volume" max="100" value="60" x="40" y="middle" w="-80" h="24" sensitive="false"/>
+      <label text="Max" x="right" y="middle" w="15%" h="24" text_align_h="right"/>
+    </row>
+  </column>

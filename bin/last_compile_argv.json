@@ -1,0 +1,170 @@
+{
+    "OUTPUT_DIR": {
+        "value": null,
+        "type": "str",
+        "desc": [
+            "compiled export directory "
+        ],
+        "help_info": "set awtk compiled export directory, default value is '', '' is system's value"
+    },
+    "TOOLS_NAME": {
+        "value": null,
+        "type": "str",
+        "str_enum": [
+            "mingw"
+        ],
+        "desc": [
+            "value is 'mingw' or None"
+        ],
+        "help_info": "set awtk compile's name, default value is None, None is system's value"
+    },
+    "INPUT_ENGINE": {
+        "value": null,
+        "type": "str",
+        "str_enum": [
+            "null",
+            "spinyin",
+            "t9",
+            "t9ext",
+            "pinyin"
+        ],
+        "desc": [
+            "value is null/spinyin/t9/t9ext/pinyin"
+        ],
+        "help_info": "set awtk use input engine, default value is None, None is system's value"
+    },
+    "VGCANVAS": {
+        "value": null,
+        "type": "str",
+        "str_enum": [
+            "NANOVG",
+            "NANOVG_PLUS",
+            "CAIRO"
+        ],
+        "desc": [
+            "value is NANOVG/NANOVG_PLUS/CAIRO",
+            "if VGCANVAS is None, default value is NANOVG_PLUS"
+        ],
+        "help_info": "set awtk use render vgcanvas type, default value is None, None is system's value"
+    },
+    "NANOVG_BACKEND": {
+        "value": null,
+        "type": "str",
+        "str_enum": [
+            "GLES2",
+            "GLES3",
+            "GL3",
+            "AGG",
+            "AGGE"
+        ],
+        "desc": [
+            "if NANOVG_BACKEND is valid, VGCANVAS must be NANOVG or ''",
+            "if VGCANVAS is NANOVG_PLUS, NANOVG_BACKEND must be GLES2/GLES3/GL3 or None",
+            "NANOVG_BACKEND is GLES2/GLES3/GL3/AGG/AGGE"
+        ],
+        "help_info": "set awtk's nanovg use render model, default value is None, None is system's value"
+    },
+    "OPENGL_ANTIALIAS": {
+        "value": "HW",
+        "type": "str",
+        "str_enum": [
+            "HW",
+            "SW",
+            "NONE"
+        ],
+        "desc": [
+            "value is HW/SW/NONE",
+            "Default value is HW",
+            "HW is platform's MultiSample antialias, SW is VGCANVAS's soft antialias, NONE is no antialias"
+        ],
+        "help_info": "Set OpenGL antialiasing mode (HW/SW/NONE), OPENGL_ANTIALIAS = \"HW\" "
+    },
+    "LCD_COLOR_FORMAT": {
+        "value": null,
+        "type": "str",
+        "str_enum": [
+            "bgr565",
+            "bgra8888",
+            "mono"
+        ],
+        "desc": [
+            "if NANOVG_BACKEND is GLES2/GLES3/GL3, LCD_COLOR_FORMAT must be bgra8888 or ''",
+            "if NANOVG_BACKEND is AGG/AGGE, LCD_COLOR_FORMAT must be bgr565/bgra8888/mono or None",
+            "NANOVG_BACKEND is bgr565/bgra8888/mono"
+        ],
+        "help_info": "set awtk's lcd color format, default value is None, None is system's value"
+    },
+    "DEBUG": {
+        "value": true,
+        "type": "bool",
+        "desc": [
+            "awtk's compile is debug"
+        ],
+        "help_info": "awtk's compile is debug, value is true or false, default value is true"
+    },
+    "PDB": {
+        "value": true,
+        "type": "bool",
+        "desc": [
+            "export pdb file"
+        ],
+        "help_info": "export pdb file, value is true or false"
+    },
+    "SDL_UBUNTU_USE_IME": {
+        "value": false,
+        "type": "bool",
+        "desc": [
+            "ubuntu use chinese input engine"
+        ],
+        "help_info": "ubuntu use ime, this sopt is ubuntu use chinese input engine, value is true or false, default value is false"
+    },
+    "NATIVE_WINDOW_BORDERLESS": {
+        "value": false,
+        "type": "bool",
+        "desc": [
+            "pc desktop program no borerless"
+        ],
+        "help_info": "pc desktop program no borerless, value is true or false, default value is false"
+    },
+    "NATIVE_WINDOW_NOT_RESIZABLE": {
+        "value": false,
+        "type": "bool",
+        "desc": [
+            "pc desktop program do not resize program"
+        ],
+        "help_info": "pc desktop program do not resize program's size, value is true or false, default value is false"
+    },
+    "BUILD_TESTS": {
+        "value": true,
+        "type": "bool",
+        "desc": [
+            "build awtk's gtest demo"
+        ],
+        "help_info": "build awtk's gtest demo, value is true or false, default value is true"
+    },
+    "BUILD_DEMOS": {
+        "value": true,
+        "type": "bool",
+        "desc": [
+            "build awtk's demo examples"
+        ],
+        "help_info": "build awtk's demo examples, value is true or false, default value is true"
+    },
+    "BUILD_TOOLS": {
+        "value": true,
+        "type": "bool",
+        "desc": [
+            "build awtk's tools"
+        ],
+        "help_info": "build awtk's tools, value is true or false, default value is true"
+    },
+    "WIN32_RES": {
+        "value": null,
+        "type": "str",
+        "save_file": false,
+        "desc": [
+            "app's win32 res path"
+        ],
+        "help_info": "app's win32 res path, WIN32_RES=XXXXX, value's default='awtk/win32_res/awtk.res' "
+    }
+}

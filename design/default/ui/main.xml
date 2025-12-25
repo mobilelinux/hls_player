@@ -1,0 +1,8 @@
+<window anim_hint="htranslate" v-model="player" theme="default">
+  <column w="100%" h="100%" children_layout="default(r=2,c=1,m=0,s=0)">
+    <video_view x="0" y="0" w="100%" h="80%" style="video_panel" v-data:image="{image}">
+      <mutable_image name="mutable_image" x="0" y="0" w="100%" h="100%"/>
+    </video_view>
+    <?include filename="player_common.xml" ?>
+  </column>
+</window>

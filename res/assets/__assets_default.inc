@@ -1,0 +1,177 @@
+#include "awtk.h"
+#include "base/assets_manager.h"
+#if !defined(WITH_FS_RES) || defined(AWTK_WEB)
+#include "default/inc/styles/main.data"
+#include "default/inc/styles/keyboard.data"
+#include "default/inc/styles/window.data"
+#include "default/inc/styles/default.data"
+#include "default/inc/ui/main.data"
+#include "default/inc/ui/player_common.data"
+#ifndef AWTK_WEB
+#ifdef WITH_STB_IMAGE
+#include "default/inc/images/checked.res"
+#include "default/inc/images/sound_plus.res"
+#include "default/inc/images/shift.res"
+#include "default/inc/images/earth.res"
+#include "default/inc/images/dialog_title.res"
+#include "default/inc/images/arrow_up_n.res"
+#include "default/inc/images/cursor_hand.res"
+#include "default/inc/images/arrow_right_p.res"
+#include "default/inc/images/empty.res"
+#include "default/inc/images/edit_clear_p.res"
+#include "default/inc/images/arrow_up_o.res"
+#include "default/inc/images/arrow_left_o.res"
+#include "default/inc/images/en.res"
+#include "default/inc/images/arrow_left_n.res"
+#include "default/inc/images/radio_checked.res"
+#include "default/inc/images/zh.res"
+#include "default/inc/images/shifton.res"
+#include "default/inc/images/check.res"
+#include "default/inc/images/cursor.res"
+#include "default/inc/images/arrow_down_n.res"
+#include "default/inc/images/muted.res"
+#include "default/inc/images/arrow_down_o.res"
+#include "default/inc/images/play.res"
+#include "default/inc/images/unmuted.res"
+#include "default/inc/images/sound_minus.res"
+#include "default/inc/images/cursor_text.res"
+#include "default/inc/images/unchecked.res"
+#include "default/inc/images/arrow_down_p.res"
+#include "default/inc/images/switch.res"
+#include "default/inc/images/radio_unchecked.res"
+#include "default/inc/images/mode_2.res"
+#include "default/inc/images/mode_1.res"
+#include "default/inc/images/mode_0.res"
+#include "default/inc/images/arrow_up_p.res"
+#include "default/inc/images/edit_clear_o.res"
+#include "default/inc/images/arrow_right_n.res"
+#include "default/inc/images/arrow_right_o.res"
+#include "default/inc/images/edit_clear_n.res"
+#include "default/inc/images/pause.res"
+#include "default/inc/images/backspace.res"
+#include "default/inc/images/arrow_left_p.res"
+#else /*WITH_STB_IMAGE*/
+#include "default/inc/images/arrow_right_o.data"
+#include "default/inc/images/sound_plus.data"
+#include "default/inc/images/muted.data"
+#include "default/inc/images/earth.data"
+#include "default/inc/images/shift.data"
+#include "default/inc/images/arrow_up_p.data"
+#include "default/inc/images/en.data"
+#include "default/inc/images/sound_minus.data"
+#include "default/inc/images/arrow_right_n.data"
+#include "default/inc/images/cursor.data"
+#include "default/inc/images/switch.data"
+#include "default/inc/images/checked.data"
+#include "default/inc/images/zh.data"
+#include "default/inc/images/arrow_right_p.data"
+#include "default/inc/images/arrow_up_o.data"
+#include "default/inc/images/mode_2.data"
+#include "default/inc/images/empty.data"
+#include "default/inc/images/radio_unchecked.data"
+#include "default/inc/images/shifton.data"
+#include "default/inc/images/arrow_up_n.data"
+#include "default/inc/images/unmuted.data"
+#include "default/inc/images/backspace.data"
+#include "default/inc/images/arrow_left_p.data"
+#include "default/inc/images/edit_clear_n.data"
+#include "default/inc/images/dialog_title.data"
+#include "default/inc/images/cursor_hand.data"
+#include "default/inc/images/mode_0.data"
+#include "default/inc/images/arrow_down_p.data"
+#include "default/inc/images/play.data"
+#include "default/inc/images/pause.data"
+#include "default/inc/images/mode_1.data"
+#include "default/inc/images/edit_clear_o.data"
+#include "default/inc/images/arrow_left_o.data"
+#include "default/inc/images/check.data"
+#include "default/inc/images/arrow_down_o.data"
+#include "default/inc/images/radio_checked.data"
+#include "default/inc/images/unchecked.data"
+#include "default/inc/images/arrow_down_n.data"
+#include "default/inc/images/cursor_text.data"
+#include "default/inc/images/arrow_left_n.data"
+#include "default/inc/images/edit_clear_p.data"
+#endif /*WITH_STB_IMAGE*/
+#ifdef WITH_TRUETYPE_FONT
+#include "default/inc/fonts/trado.res"
+#include "default/inc/fonts/ap.res"
+#include "default/inc/fonts/default_full.res"
+#include "default/inc/fonts/default.res"
+#else /*WITH_TRUETYPE_FONT*/
+#endif /*WITH_TRUETYPE_FONT*/
+#endif /*AWTK_WEB*/
+#ifdef WITH_VGCANVAS
+#endif /*WITH_VGCANVAS*/
+#endif /*!defined(WITH_FS_RES) || defined(AWTK_WEB)*/
+
+ret_t assets_init_default(void) {
+  assets_manager_t* am = assets_manager();
+  assets_manager_set_theme(am, "default");
+
+#if defined(WITH_FS_RES) && !defined(AWTK_WEB)
+  assets_manager_preload(am, ASSET_TYPE_STYLE, "default");
+#else /*defined(WITH_FS_RES) && !defined(AWTK_WEB)*/
+  assets_manager_add(am, style_main_default);
+  assets_manager_add(am, style_keyboard_default);
+  assets_manager_add(am, style_window_default);
+  assets_manager_add(am, style_default_default);
+  assets_manager_add(am, ui_main_default);
+  assets_manager_add(am, ui_player_common_default);
+#ifndef AWTK_WEB
+  assets_manager_add(am, image_checked_default);
+  assets_manager_add(am, image_sound_plus_default);
+  assets_manager_add(am, image_shift_default);
+  assets_manager_add(am, image_earth_default);
+  assets_manager_add(am, image_dialog_title_default);
+  assets_manager_add(am, image_arrow_up_n_default);
+  assets_manager_add(am, image_cursor_hand_default);
+  assets_manager_add(am, image_arrow_right_p_default);
+  assets_manager_add(am, image_empty_default);
+  assets_manager_add(am, image_edit_clear_p_default);
+  assets_manager_add(am, image_arrow_up_o_default);
+  assets_manager_add(am, image_arrow_left_o_default);
+  assets_manager_add(am, image_en_default);
+  assets_manager_add(am, image_arrow_left_n_default);
+  assets_manager_add(am, image_radio_checked_default);
+  assets_manager_add(am, image_zh_default);
+  assets_manager_add(am, image_shifton_default);
+  assets_manager_add(am, image_check_default);
+  assets_manager_add(am, image_cursor_default);
+  assets_manager_add(am, image_arrow_down_n_default);
+  assets_manager_add(am, image_muted_default);
+  assets_manager_add(am, image_arrow_down_o_default);
+  assets_manager_add(am, image_play_default);
+  assets_manager_add(am, image_unmuted_default);
+  assets_manager_add(am, image_sound_minus_default);
+  assets_manager_add(am, image_cursor_text_default);
+  assets_manager_add(am, image_unchecked_default);
+  assets_manager_add(am, image_arrow_down_p_default);
+  assets_manager_add(am, image_switch_default);
+  assets_manager_add(am, image_radio_unchecked_default);
+  assets_manager_add(am, image_mode_2_default);
+  assets_manager_add(am, image_mode_1_default);
+  assets_manager_add(am, image_mode_0_default);
+  assets_manager_add(am, image_arrow_up_p_default);
+  assets_manager_add(am, image_edit_clear_o_default);
+  assets_manager_add(am, image_arrow_right_n_default);
+  assets_manager_add(am, image_arrow_right_o_default);
+  assets_manager_add(am, image_edit_clear_n_default);
+  assets_manager_add(am, image_pause_default);
+  assets_manager_add(am, image_backspace_default);
+  assets_manager_add(am, image_arrow_left_p_default);
+#ifdef WITH_TRUETYPE_FONT
+  assets_manager_add(am, font_trado_default);
+  assets_manager_add(am, font_ap_default);
+  assets_manager_add(am, font_default_full_default);
+  assets_manager_add(am, font_default_default);
+#else /*WITH_TRUETYPE_FONT*/
+#endif /*WITH_TRUETYPE_FONT*/
+#endif /*AWTK_WEB*/
+#ifdef WITH_VGCANVAS
+#endif /*WITH_VGCANVAS*/
+#endif /*defined(WITH_FS_RES) && !defined(AWTK_WEB)*/
+
+  tk_init_assets();
+  return RET_OK;
+}

@@ -1,0 +1,6 @@
+[submodule "3rd/awtk-mvvm"]
+	path = 3rd/awtk-mvvm
+	url = https://github.com/zlgopen/awtk-mvvm.git
+[submodule "3rd/awtk"]
+	path = 3rd/awtk
+	url = https://github.com/zlgopen/awtk.git
